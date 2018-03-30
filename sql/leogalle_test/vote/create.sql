@@ -7,5 +7,6 @@ CREATE TABLE `vote` (
     `value` int(1) signed not null,
     `created` datetime not null,
     `updated` datetime default null,
-    PRIMARY KEY (`vote_id`)
+    PRIMARY KEY (`vote_id`),
+    UNIQUE (`user_id`, `entity_type_id`, `type_id`)
 ) charset=utf8;
