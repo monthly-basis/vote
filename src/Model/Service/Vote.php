@@ -20,7 +20,7 @@ class Vote
         int $typeId,
         int $value
     ) {
-        $this->voteTable->insertOnDuplicateKeyUpdate(
+        return $this->voteTable->insertOnDuplicateKeyUpdate(
             $userEntity->getUserId(),
             null,
             $entityTypeEntity->getEntityTypeId(),
