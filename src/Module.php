@@ -22,6 +22,11 @@ class Module
     {
         return [
             'factories' => [
+                VoteService\Vote::class => function ($serviceManager) {
+                    return new VoteService\Vote(
+                        $serviceManager->get(VoteTable\Vote::class)
+                    );
+                },
                 VoteTable\Vote::class => function ($serviceManager) {
                     return new VoteTable\Vote(
                         $serviceManager->get('main')
