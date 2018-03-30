@@ -1,0 +1,14 @@
+{
+    "name": "leo-galleguillos/vote",
+    "license": "MIT",
+    "require": {
+        "leo-galleguillos/entity": "dev-master",
+        "zendframework/zend-test": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LeoGalleguillos\\Vote\\": "src/",
+            "LeoGalleguillos\\VoteTest\\": "test/"
+        }
+    }
+}
