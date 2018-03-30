@@ -49,4 +49,16 @@ class VoteTest extends TableTestCase
             $this->voteTable
         );
     }
+
+    public function testInsertOnDuplicateKeyUpdate()
+    {
+        $voteId = $this->voteTable->insertOnDuplicateKeyUpdate(
+            1,
+            2,
+            3,
+            4,
+            5
+        );
+        $this->assertSame($voteId, 1);
+    }
 }
