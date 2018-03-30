@@ -20,23 +20,29 @@ class Vote
     /**
      * @return int
      */
-    public function insert(
-        $userId,
-        string $subject,
-        string $message
+    public function insertOnDuplicateKeyUpdate(
+        int $userId,
+        int $entityId = null,
+        int $entityTypeId,
+        int $typeId,
+        int $value
     ) : int {
         $sql = '
             INSERT
-              INTO `question` (
-                   `user_id`, `subject`, `message`, `created`
+              INTO `vote` (
+                  `user_id`, `entity_id`,
+                  `entity_type_id`, `type_id`, `value`, `created`
                    )
-            VALUES (:userId, :subject, :message, UTC_TIMESTAMP())
+            VALUES (:userId, :entityId, :entityTypeId, :typeId, :value, UTC_TIMESTAMP())
+                ON DUPLICATE KEY UPDATE `value` = :value, `updated` = UTC_TIMESTAMP()
                  ;
         ';
         $parameters = [
             'userId'       => $userId,
-            'subject'     => $subject,
-            'message' => $message,
+            'entityId'     => $entityId,
+            'entityTypeId' => $entityTypeId,
+            'typeId'       => $typeId,
+            'value'        => $value,
         ];
         return $this->adapter
                     ->query($sql)
@@ -48,71 +54,10 @@ class Vote
     {
         $sql = '
             SELECT COUNT(*) AS `count`
-              FROM `question`
+              FROM `vote`
                  ;
         ';
         $row = $this->adapter->query($sql)->execute()->current();
         return (int) $row['count'];
-    }
-
-    public function selectOrderByCreatedDesc() : Generator
-    {
-        $sql = '
-            SELECT `question`.`question_id`
-                 , `question`.`user_id`
-                 , `question`.`subject`
-                 , `question`.`message`
-                 , `question`.`created`
-                 , `question`.`views`
-              FROM `question`
-             ORDER
-                BY `question`.`created` DESC
-             LIMIT 100
-                 ;
-        ';
-        foreach ($this->adapter->query($sql)->execute() as $row) {
-            yield($row);
-        }
-    }
-
-    /**
-     * Select where question ID.
-     *
-     * @param int $questionId
-     * @return array
-     */
-    public function selectWhereVoteId(int $questionId) : array
-    {
-        $sql = '
-            SELECT `question`.`question_id`
-                 , `question`.`user_id`
-                 , `question`.`subject`
-                 , `question`.`message`
-                 , `question`.`created`
-                 , `question`.`views`
-              FROM `question`
-             WHERE `question`.`question_id` = :questionId
-             ORDER
-                BY `question`.`created` ASC
-                 ;
-        ';
-        $parameters = [
-            'questionId' => $questionId,
-        ];
-        return $this->adapter->query($sql)->execute($parameters)->current();
-    }
-
-    public function updateViewsWhereVoteId(int $questionId) : bool
-    {
-        $sql = '
-            UPDATE `question`
-               SET `question`.`views` = `question`.`views` + 1
-             WHERE `question`.`question_id` = :questionId
-                 ;
-        ';
-        $parameters = [
-            'questionId' => $questionId,
-        ];
-        return (bool) $this->adapter->query($sql, $parameters)->getAffectedRows();
     }
 }
