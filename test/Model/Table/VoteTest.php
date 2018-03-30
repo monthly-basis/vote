@@ -60,5 +60,19 @@ class VoteTest extends TableTestCase
             5
         );
         $this->assertSame($voteId, 1);
+
+        $voteId = $this->voteTable->insertOnDuplicateKeyUpdate(
+            1,
+            2,
+            3,
+            4,
+            5
+        );
+        $this->assertSame($voteId, 1);
+
+        $this->assertSame(
+            $this->voteTable->selectCount(),
+            1
+        );
     }
 }
