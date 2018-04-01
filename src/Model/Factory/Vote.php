@@ -2,8 +2,8 @@
 namespace LeoGalleguillos\Vote\Model\Factory;
 
 use Exception;
+use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
 use LeoGalleguillos\User\Model\Entity as UserEntity;
-use LeoGalleguillos\Vote\Model\Entity as EntityEntity;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 
 class Vote
