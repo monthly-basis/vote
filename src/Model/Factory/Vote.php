@@ -36,6 +36,9 @@ class Vote
     public function buildFromArray(array $array) : VoteEntity\Vote
     {
         $voteEntity = new VoteEntity\Vote();
+
+        $voteEntity->setValue($array['value']);
+
         return $voteEntity;
     }
 }
