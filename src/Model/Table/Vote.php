@@ -82,4 +82,34 @@ class Vote
         $row = $this->adapter->query($sql)->execute($parameters)->current();
         return (int) $row['count'];
     }
+
+    /**
+     * @throws Exception
+     */
+    public function selectWhereUserIdEntityTypeIdTypeId(
+        int $userId,
+        int $entityTypeId,
+        int $typeId
+    ) : array {
+        $sql = '
+            SELECT `vote`.`value`
+              FROM `vote`
+             WHERE `vote`.`user_id` = :userId
+               AND `entity_type_id` = :entityTypeId
+               AND `type_id` = :typeId
+                 ;
+        ';
+        $parameters = [
+            'userId'       => $userId,
+            'entityTypeId' => $entityTypeId,
+            'typeId'       => $typeId,
+        ];
+        $row = $this->adapter->query($sql)->execute($parameters)->current();
+
+        if (empty($row)) {
+            throw new Except('Matching row could not be found');
+        }
+
+        return $row;
+    }
 }
