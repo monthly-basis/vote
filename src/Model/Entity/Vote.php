@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\Model\Entity;
+namespace LeoGalleguillos\Vote\Model\Entity;
 
-use LeoGalleguillos\Model\Entity\Vote as VoteEntity;
+use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
 
 class Vote
 {
