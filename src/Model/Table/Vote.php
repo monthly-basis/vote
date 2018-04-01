@@ -60,4 +60,26 @@ class Vote
         $row = $this->adapter->query($sql)->execute()->current();
         return (int) $row['count'];
     }
+
+    public function selectCountWhereEntityTypeIdTypeIdValue(
+        int $entityTypeId,
+        int $typeId,
+        int $value
+    ) {
+        $sql = '
+            SELECT COUNT(*) AS `count`
+              FROM `vote`
+             WHERE `entity_type_id` = :entityTypeId
+               AND `type_id` = :typeId
+               AND `value` = :value
+                 ;
+        ';
+        $parameters = [
+            'entityTypeId' => $entityTypeId,
+            'typeId'       => $typeId,
+            'value'        => $value,
+        ];
+        $row = $this->adapter->query($sql)->execute($parameters)->current();
+        return (int) $row['count'];
+    }
 }
