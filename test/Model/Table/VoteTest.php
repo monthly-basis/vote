@@ -75,4 +75,17 @@ class VoteTest extends TableTestCase
             1
         );
     }
+
+    public function testSelectWhereUserIdEntityTypeIdTypeId()
+    {
+        try {
+            $this->voteTable->selectWhereUserIdEntityTypeIdTypeId(1, 2, 3);
+            $this->fail();
+        } catch (Exception $exception) {
+            $this->assertSame(
+                'Matching row could not be found.',
+                $exception->getMessage()
+            );
+        }
+    }
 }

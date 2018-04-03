@@ -107,7 +107,7 @@ class Vote
         $row = $this->adapter->query($sql)->execute($parameters)->current();
 
         if (empty($row)) {
-            throw new Exception('Matching row could not be found');
+            throw new Exception('Matching row could not be found.');
         }
 
         return $row;
