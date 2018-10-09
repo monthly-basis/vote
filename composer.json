@@ -2,11 +2,11 @@
     "name": "leo-galleguillos/vote",
     "license": "MIT",
     "require": {
-        "leo-galleguillos/user": "dev-master",
         "leo-galleguillos/entity": "dev-master",
         "leo-galleguillos/flash": "dev-master",
-        "leo-galleguillos/image": "dev-master",
+        "leo-galleguillos/re-captcha": "dev-master",
         "leo-galleguillos/string": "dev-master",
+        "leo-galleguillos/user": "dev-master",
         "zendframework/zend-test": "^3.1"
     },
     "autoload": {
