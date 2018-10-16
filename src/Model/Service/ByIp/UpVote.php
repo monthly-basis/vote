@@ -25,17 +25,15 @@ class UpVote
             1
         );
 
-        /*
         if (empty($rowsAffected)) {
             return;
         }
 
         if ($rowsAffected == 1) {
-            // increment appropriate vote
-        } elseif ($rowsAffected == 2) {
-            // undo previous vote
-            // increment appropriate vote
+            $this->votesTable->incrementUpVotes(
+                $entityTypeId,
+                $typeId
+            );
         }
-         */
     }
 }
