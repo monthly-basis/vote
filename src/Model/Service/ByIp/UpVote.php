@@ -29,6 +29,11 @@ class UpVote
             return;
         }
 
+        $this->votesTable->insertIgnore(
+            $entityTypeId,
+            $typeId
+        );
+
         if ($rowsAffected == 1) {
             $this->votesTable->incrementUpVotes(
                 $entityTypeId,
