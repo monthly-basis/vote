@@ -19,10 +19,10 @@ class Remove
         int $typeId
     ) {
         $rowsAffected = $this->voteByIpTable->update(
+            0,
             $ip,
             $entityTypeId,
-            $typeId,
-            0
+            $typeId
         );
 
         if (empty($rowsAffected)) {

@@ -78,4 +78,33 @@ class VoteByIp
         ];
         return $this->adapter->query($sql)->execute($parameters)->current();
     }
+
+    /**
+     * @return int
+     */
+    public function update(
+        int $value,
+        string $ip,
+        int $entityTypeId,
+        int $typeId
+    ): int {
+        $sql = '
+            UPDATE `vote_by_ip`
+               SET `vote_by_ip`.`value` = ?
+             WHERE `vote_by_ip`.`ip` = ?
+               AND `vote_by_ip`.`entity_type_id` = ?
+               AND `vote_by_ip`.`type_id` = ?
+                 ;
+        ';
+        $parameters = [
+            $value,
+            $ip,
+            $entityTypeId,
+            $typeId,
+        ];
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getAffectedRows();
+    }
 }
