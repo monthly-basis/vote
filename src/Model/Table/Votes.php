@@ -45,7 +45,7 @@ class Votes
         $sql = '
             INSERT IGNORE
               INTO `votes` (
-                     , `entity_type_id`
+                       `entity_type_id`
                      , `type_id`
                    )
             VALUES (?, ?)
