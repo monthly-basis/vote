@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service;
+namespace LeoGalleguillos\Vote\Model\Service\ByIp;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 
-class VoteByIp
+class UpVote
 {
     public function __construct(
         VoteTable\VoteByIp $voteByIpTable,
@@ -16,16 +16,16 @@ class VoteByIp
     public function voteByIp(
         string $ip,
         int $entityTypeId,
-        int $typeId,
-        int $value
+        int $typeId
     ) {
         $rowsAffected = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
             $ip,
             $entityTypeId,
             $typeId,
-            $value
+            1
         );
 
+        /*
         if (empty($rowsAffected)) {
             return;
         }
@@ -36,5 +36,6 @@ class VoteByIp
             // undo previous vote
             // increment appropriate vote
         }
+         */
     }
 }

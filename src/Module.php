@@ -28,15 +28,15 @@ class Module
                         $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
+                VoteService\ByIp\UpVote::class => function ($serviceManager) {
+                    return new VoteService\ByIp\UpVote(
+                        $serviceManager->get(VoteTable\VoteByIp::class),
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
                 VoteService\Vote::class => function ($serviceManager) {
                     return new VoteService\Vote(
                         $serviceManager->get(VoteTable\Vote::class)
-                    );
-                },
-                VoteService\VoteByIp::class => function ($serviceManager) {
-                    return new VoteService\VoteByIp(
-                        $serviceManager->get(VoteTable\VoteByIp::class),
-                        $serviceManager->get(VoteTable\Votes::class)
                     );
                 },
                 VoteTable\Vote::class => function ($serviceManager) {
