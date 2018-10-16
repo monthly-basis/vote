@@ -1,4 +1,4 @@
-CREATE TABLE `vote_by_ip_total` (
+CREATE TABLE `votes` (
     `entity_type_id` int(10) unsigned not null,
     `type_id` int(10) unsigned not null,
     `up_votes` int(1) unsigned not null default '0',

@@ -6,7 +6,7 @@ use Generator;
 use TypeError;
 use Zend\Db\Adapter\Adapter;
 
-class VoteByIpTotal
+class Votes
 {
     /**
      * @var Adapter
@@ -23,7 +23,7 @@ class VoteByIpTotal
         int $typeId
     ):int {
         $sql = '
-            UPDATE `vote_by_ip_total`
+            UPDATE `votes`
                SET `up_votes` = `up_votes` + 1
              WHERE `entity_type_id` = ?
                AND `type_id` = ?
@@ -44,7 +44,7 @@ class VoteByIpTotal
     ): int {
         $sql = '
             INSERT IGNORE
-              INTO `vote_by_ip_total` (
+              INTO `votes` (
                      , `entity_type_id`
                      , `type_id`
                    )

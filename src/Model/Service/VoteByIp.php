@@ -7,10 +7,10 @@ class VoteByIp
 {
     public function __construct(
         VoteTable\VoteByIp $voteByIpTable,
-        VoteTable\VoteByIpTotal $voteByIpTotalTable
+        VoteTable\Votes $votesTable
     ) {
-        $this->voteByIpTable      = $voteByIpTable;
-        $this->voteByIpTotalTable = $voteByIpTotalTable;
+        $this->voteByIpTable = $voteByIpTable;
+        $this->votesTable    = $votesTable;
     }
 
     public function voteByIp(

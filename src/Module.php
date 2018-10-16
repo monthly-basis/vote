@@ -36,7 +36,7 @@ class Module
                 VoteService\VoteByIp::class => function ($serviceManager) {
                     return new VoteService\VoteByIp(
                         $serviceManager->get(VoteTable\VoteByIp::class),
-                        $serviceManager->get(VoteTable\VoteByIpTotal::class)
+                        $serviceManager->get(VoteTable\Votes::class)
                     );
                 },
                 VoteTable\Vote::class => function ($serviceManager) {
@@ -49,8 +49,8 @@ class Module
                         $serviceManager->get('vote')
                     );
                 },
-                VoteTable\VoteByIpTotal::class => function ($serviceManager) {
-                    return new VoteTable\VoteByIpTotal(
+                VoteTable\Votes::class => function ($serviceManager) {
+                    return new VoteTable\Votes(
                         $serviceManager->get('vote')
                     );
                 },
