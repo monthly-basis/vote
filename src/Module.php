@@ -30,6 +30,7 @@ class Module
                 },
                 VoteService\ByIp\UpVote::class => function ($serviceManager) {
                     return new VoteService\ByIp\UpVote(
+                        $serviceManager->get('vote')->getDriver()->getConnection(),
                         $serviceManager->get(VoteTable\VoteByIp::class),
                         $serviceManager->get(VoteTable\Votes::class)
                     );
