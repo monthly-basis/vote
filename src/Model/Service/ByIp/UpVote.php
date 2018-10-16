@@ -13,7 +13,7 @@ class UpVote
         $this->votesTable    = $votesTable;
     }
 
-    public function voteByIp(
+    public function upVote(
         string $ip,
         int $entityTypeId,
         int $typeId
