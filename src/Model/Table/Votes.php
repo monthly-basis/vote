@@ -18,6 +18,26 @@ class Votes
         $this->adapter = $adapter;
     }
 
+    public function decrementUpVotes(
+        int $entityTypeId,
+        int $typeId
+    ):int {
+        $sql = '
+            UPDATE `votes`
+               SET `up_votes` = `up_votes` - 1
+             WHERE `entity_type_id` = ?
+               AND `type_id` = ?
+        ';
+        $parameters = [
+            $entityTypeId,
+            $typeId,
+        ];
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getAffectedRows();
+    }
+
     public function incrementUpVotes(
         int $entityTypeId,
         int $typeId

@@ -34,6 +34,12 @@ class Module
                         $serviceManager->get(VoteTable\Votes::class)
                     );
                 },
+                VoteService\ByIp\UpVote\Remove::class => function ($serviceManager) {
+                    return new VoteService\ByIp\UpVote\Remove(
+                        $serviceManager->get(VoteTable\VoteByIp::class),
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
                 VoteService\Vote::class => function ($serviceManager) {
                     return new VoteService\Vote(
                         $serviceManager->get(VoteTable\Vote::class)
