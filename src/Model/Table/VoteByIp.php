@@ -82,22 +82,20 @@ class VoteByIp
     /**
      * @return int
      */
-    public function update(
-        int $value,
+    public function delete(
         string $ip,
         int $entityTypeId,
         int $typeId
     ): int {
         $sql = '
-            UPDATE `vote_by_ip`
-               SET `vote_by_ip`.`value` = ?
+            DELETE
+              FROM `vote_by_ip`
              WHERE `vote_by_ip`.`ip` = ?
                AND `vote_by_ip`.`entity_type_id` = ?
                AND `vote_by_ip`.`type_id` = ?
                  ;
         ';
         $parameters = [
-            $value,
             $ip,
             $entityTypeId,
             $typeId,

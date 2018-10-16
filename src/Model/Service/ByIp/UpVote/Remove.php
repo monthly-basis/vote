@@ -18,8 +18,7 @@ class Remove
         int $entityTypeId,
         int $typeId
     ) {
-        $rowsAffected = $this->voteByIpTable->update(
-            0,
+        $rowsAffected = $this->voteByIpTable->delete(
             $ip,
             $entityTypeId,
             $typeId
