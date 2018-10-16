@@ -33,9 +33,25 @@ class Module
                         $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
+                VoteService\VoteByIp::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp(
+                        $serviceManager->get(VoteTable\VoteByIp::class),
+                        $serviceManager->get(VoteTable\VoteByIpTotal::class)
+                    );
+                },
                 VoteTable\Vote::class => function ($serviceManager) {
                     return new VoteTable\Vote(
-                        $serviceManager->get('main')
+                        $serviceManager->get('vote')
+                    );
+                },
+                VoteTable\VoteByIp::class => function ($serviceManager) {
+                    return new VoteTable\VoteByIp(
+                        $serviceManager->get('vote')
+                    );
+                },
+                VoteTable\VoteByIpTotal::class => function ($serviceManager) {
+                    return new VoteTable\VoteByIpTotal(
+                        $serviceManager->get('vote')
                     );
                 },
             ],

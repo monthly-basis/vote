@@ -43,10 +43,11 @@ class VoteByIp
                  ;
         ';
         $parameters = [
-            'ip'           => $ip,
-            'entityTypeId' => $entityTypeId,
-            'typeId'       => $typeId,
-            'value'        => $value,
+            $ip,
+            $entityTypeId,
+            $typeId,
+            $value,
+            $value,
         ];
         return (int) $this->adapter
                           ->query($sql)
