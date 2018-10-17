@@ -19,7 +19,8 @@ class UpVote
     public function upVote(
         string $ip,
         int $entityTypeId,
-        int $typeId
+        int $typeId,
+        int $currentValue
     ) {
         $this->connection->beginTransaction();
 
@@ -39,9 +40,14 @@ class UpVote
             $entityTypeId,
             $typeId
         );
+        $this->votesTable->incrementUpVotes(
+            $entityTypeId,
+            $typeId
+        );
 
-        if ($rowsAffected == 1) {
-            $this->votesTable->incrementUpVotes(
+        // This logic won't ever be called yet.
+        if ($currentValue == -1) {
+            $this->votesTable->decrementDownVotes(
                 $entityTypeId,
                 $typeId
             );
