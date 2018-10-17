@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Model\Entity\Vote;
+namespace LeoGalleguillos\Vote\Model\Entity;
 
 class Votes
 {
