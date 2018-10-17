@@ -72,7 +72,7 @@ class VoteByIp
                  ;
         ';
         $parameters = [
-            $userId,
+            $ip,
             $entityTypeId,
             $typeId,
         ];
