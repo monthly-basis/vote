@@ -1,24 +1,30 @@
 <?php
 namespace LeoGalleguillos\Model\Entity\Vote;
 
-use Exception;
-
 class Votes
 {
-    protected $count[];
+    protected $downVotes;
+    protected $upVotes;
 
-    public function getCount(int $value) : int
+    public function getDownVotes(): int
     {
-        if (!isset($this->count[$key])) {
-            throw new Except('Key value pair not set.');
-        }
-
-        return $this->count[$key];
+        return $this->downVotes;
     }
 
-    public function setCount(int $key, int $value)
+    public function setDownVotes(int $downVotes): VoteEntity\Votes
     {
-        $this->count[$key] = $value;
+        $this->downVotes = $downVotes;
+        return $this;
+    }
+
+    public function getUpVotes(): int
+    {
+        return $this->upVotes;
+    }
+
+    public function setUpVotes(int $upVotes): VoteEntity\Votes
+    {
+        $this->upVotes = $upVotes;
         return $this;
     }
 }
