@@ -21,7 +21,7 @@ class ByIp
         int $typeId
     ): VoteEntity\Vote\VoteByIp {
         try {
-            $array = $this->voteByIpTable->selectWhereUserIdEntityTypeIdTypeId(
+            $array = $this->voteByIpTable->selectWhereIpEntityTypeIdTypeId(
                 $ip,
                 $entityTypeId,
                 $typeId
