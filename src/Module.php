@@ -33,6 +33,11 @@ class Module
                         $serviceManager->get(VoteTable\VoteByIp::class)
                     );
                 },
+                VoteFactory\Votes::class => function ($serviceManager) {
+                    return new VoteFactory\Votes(
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
                 VoteService\Vote::class => function ($serviceManager) {
                     return new VoteService\Vote(
                         $serviceManager->get(VoteTable\Vote::class)

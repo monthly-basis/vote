@@ -80,4 +80,28 @@ class Votes
                           ->execute($parameters)
                           ->getAffectedRows();
     }
+
+    public function select(
+        int $entityTypeId,
+        int $typeId
+    ): int {
+        $sql = '
+            SELECT `entity_type_id`
+                 , `type_id`
+                 , `up_votes`
+                 , `down_votes`
+              FROM `votes`
+             WHERE `entity_type_id` = ?
+               AND `type_id` = ?
+                 ;
+        ';
+        $parameters = [
+            $entityTypeId,
+            $typeId,
+        ];
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getAffectedRows();
+    }
 }
