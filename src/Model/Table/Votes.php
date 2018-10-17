@@ -84,7 +84,7 @@ class Votes
     public function select(
         int $entityTypeId,
         int $typeId
-    ): int {
+    ): array {
         $sql = '
             SELECT `entity_type_id`
                  , `type_id`
@@ -102,6 +102,6 @@ class Votes
         return (int) $this->adapter
                           ->query($sql)
                           ->execute($parameters)
-                          ->getAffectedRows();
+                          ->current();
     }
 }
