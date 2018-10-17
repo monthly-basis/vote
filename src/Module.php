@@ -28,8 +28,8 @@ class Module
                         $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
-                VoteFactory\Vote\ByIp::class => function ($serviceManager) {
-                    return new VoteFactory\Vote\ByIp(
+                VoteFactory\VoteByIp::class => function ($serviceManager) {
+                    return new VoteFactory\VoteByIp(
                         $serviceManager->get(VoteTable\VoteByIp::class)
                     );
                 },
