@@ -39,13 +39,12 @@ class UpVote
             $entityTypeId,
             $typeId
         );
-        $this->votesTable->incrementUpVotes(
-            $entityTypeId,
-            $typeId
-        );
 
-        if ($rowsAffected == 2) {
-            // Decrement downvotes
+        if ($rowsAffected == 1) {
+            $this->votesTable->incrementUpVotes(
+                $entityTypeId,
+                $typeId
+            );
         }
 
         $this->connection->commit();
