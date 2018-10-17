@@ -35,14 +35,14 @@ class VoteByIp
 
     public function buildFromArray(array $array): VoteEntity\VoteByIp
     {
-        $voteByIpEntity = new VoteEntity\Vote\ByIp();
+        $voteByIpEntity = new VoteEntity\VoteByIp();
         $voteByIpEntity->setValue($array['value']);
         return $voteByIpEntity;
     }
 
     public function buildDefault(): VoteEntity\VoteByIp
     {
-        $voteByIpEntity = new VoteEntity\Vote\ByIp();
+        $voteByIpEntity = new VoteEntity\VoteByIp();
         $voteByIpEntity->setValue(0);
         return $voteByIpEntity;
     }
