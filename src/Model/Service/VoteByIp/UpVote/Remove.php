@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\ByIp\Upvote;
+namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\Upvote;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 

@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\ByIp;
+namespace LeoGalleguillos\Vote\Model\Service\VoteByIp;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use Zend\Db\Adapter\Driver\Pdo\Connection;

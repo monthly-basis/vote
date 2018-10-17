@@ -33,22 +33,22 @@ class Module
                         $serviceManager->get(VoteTable\VoteByIp::class)
                     );
                 },
-                VoteService\ByIp\UpVote::class => function ($serviceManager) {
-                    return new VoteService\ByIp\UpVote(
+                VoteService\Vote::class => function ($serviceManager) {
+                    return new VoteService\Vote(
+                        $serviceManager->get(VoteTable\Vote::class)
+                    );
+                },
+                VoteService\VoteByIp\UpVote::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp\UpVote(
                         $serviceManager->get('vote')->getDriver()->getConnection(),
                         $serviceManager->get(VoteTable\VoteByIp::class),
                         $serviceManager->get(VoteTable\Votes::class)
                     );
                 },
-                VoteService\ByIp\UpVote\Remove::class => function ($serviceManager) {
-                    return new VoteService\ByIp\UpVote\Remove(
+                VoteService\VoteByIp\UpVote\Remove::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp\UpVote\Remove(
                         $serviceManager->get(VoteTable\VoteByIp::class),
                         $serviceManager->get(VoteTable\Votes::class)
-                    );
-                },
-                VoteService\Vote::class => function ($serviceManager) {
-                    return new VoteService\Vote(
-                        $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
                 VoteTable\Vote::class => function ($serviceManager) {
