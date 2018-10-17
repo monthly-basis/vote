@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Entity\Vote;
+namespace LeoGalleguillos\Vote\Model\Entity;
 
 use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
 
-class ByIp extends VoteEntity\Vote
+class VoteByIp
 {
     /**
      * @var int
@@ -15,7 +15,7 @@ class ByIp extends VoteEntity\Vote
         return $this->value;
     }
 
-    public function setValue(int $value) : VoteEntity\Vote
+    public function setValue(int $value) : VoteEntity\VoteByIp
     {
         $this->value = $value;
         return $this;
