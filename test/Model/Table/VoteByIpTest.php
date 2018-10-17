@@ -3,6 +3,7 @@ namespace LeoGalleguillos\VoteTest\Model\Table;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use LeoGalleguillos\VoteTest\TableTestCase;
+use TypeError;
 use Zend\Db\Adapter\Adapter;
 
 class VoteByIpTest extends TableTestCase
@@ -79,6 +80,40 @@ class VoteByIpTest extends TableTestCase
         $this->assertSame(
             2,
             $affectedRows
+        );
+    }
+
+    public function testSelectWhereIpEntityTypeIdTypeId()
+    {
+        $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            123,
+            456,
+            -1
+        );
+
+        try {
+            $array = $this->voteByIpTable->selectWhereIpEntityTypeIdTypeId(
+                '1.2.3.4',
+                1,
+                2
+            );
+            $this->fail();
+        } catch (TypeError $typeError) {
+            $this->assertSame(
+                'Return value',
+                substr($typeError->getMessage(), 0, 12)
+            );
+        }
+
+        $array = $this->voteByIpTable->selectWhereIpEntityTypeIdTypeId(
+            '1.2.3.4',
+            123,
+            456
+        );
+        $this->assertSame(
+            '-1',
+            $array['value']
         );
     }
 }
