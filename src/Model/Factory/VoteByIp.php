@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Factory\Vote;
+namespace LeoGalleguillos\Vote\Model\Factory;
 
 use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
 use LeoGalleguillos\User\Model\Entity as UserEntity;
@@ -7,7 +7,7 @@ use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use TypeError;
 
-class ByIp
+class VoteByIp
 {
     public function __construct(
         VoteTable\VoteByIp $voteByIpTable
@@ -19,7 +19,7 @@ class ByIp
         string $ip,
         int $entityTypeId,
         int $typeId
-    ): VoteEntity\Vote\ByIp {
+    ): VoteEntity\VoteByIp {
         try {
             $array = $this->voteByIpTable->selectWhereIpEntityTypeIdTypeId(
                 $ip,
@@ -33,14 +33,14 @@ class ByIp
         return $this->buildFromArray($array);
     }
 
-    public function buildFromArray(array $array): VoteEntity\Vote\ByIp
+    public function buildFromArray(array $array): VoteEntity\VoteByIp
     {
         $voteByIpEntity = new VoteEntity\Vote\ByIp();
         $voteByIpEntity->setValue($array['value']);
         return $voteByIpEntity;
     }
 
-    public function buildDefault(): VoteEntity\Vote\ByIp
+    public function buildDefault(): VoteEntity\VoteByIp
     {
         $voteByIpEntity = new VoteEntity\Vote\ByIp();
         $voteByIpEntity->setValue(0);
