@@ -28,6 +28,11 @@ class Module
                         $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
+                VoteFactory\Vote\ByIp::class => function ($serviceManager) {
+                    return new VoteFactory\Vote\ByIp(
+                        $serviceManager->get(VoteTable\VoteByIp::class)
+                    );
+                },
                 VoteService\ByIp\UpVote::class => function ($serviceManager) {
                     return new VoteService\ByIp\UpVote(
                         $serviceManager->get('vote')->getDriver()->getConnection(),
