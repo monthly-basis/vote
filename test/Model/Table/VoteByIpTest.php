@@ -45,4 +45,40 @@ class VoteByIpTest extends TableTestCase
             $this->voteByIpTable
         );
     }
+
+    public function testInsertOnDuplicateKeyUpdate()
+    {
+        $affectedRows = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            1,
+            2,
+            -1
+        );
+        $this->assertSame(
+            1,
+            $affectedRows
+        );
+
+        $affectedRows = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            1,
+            2,
+            -1
+        );
+        $this->assertSame(
+            0,
+            $affectedRows
+        );
+
+        $affectedRows = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            1,
+            2,
+            1
+        );
+        $this->assertSame(
+            2,
+            $affectedRows
+        );
+    }
 }
