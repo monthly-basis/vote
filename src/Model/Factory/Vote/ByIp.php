@@ -19,7 +19,7 @@ class ByIp
         string $ip,
         int $entityTypeId,
         int $typeId
-    ): VoteEntity\Vote\VoteByIp {
+    ): VoteEntity\Vote\ByIp {
         try {
             $array = $this->voteByIpTable->selectWhereIpEntityTypeIdTypeId(
                 $ip,
@@ -33,14 +33,14 @@ class ByIp
         return $this->buildFromArray($array);
     }
 
-    public function buildFromArray(array $array): VoteEntity\Vote\VoteByIp
+    public function buildFromArray(array $array): VoteEntity\Vote\ByIp
     {
         $voteByIpEntity = new VoteEntity\Vote\ByIp();
         $voteByIpEntity->setValue($array['value']);
         return $voteByIpEntity;
     }
 
-    public function buildDefault()
+    public function buildDefault(): VoteEntity\Vote\ByIp
     {
         $voteByIpEntity = new VoteEntity\Vote\ByIp();
         $voteByIpEntity->setValue(0);
