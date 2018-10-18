@@ -15,7 +15,7 @@ class VoteByIp
         $this->voteByIpTable = $voteByIpTable;
     }
 
-    public function buildFromIpEntityTypeIdAndTypeId(
+    public function buildFromIpEntityTypeIdTypeId(
         string $ip,
         int $entityTypeId,
         int $typeId
