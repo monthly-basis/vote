@@ -5,6 +5,7 @@ use Exception;
 use Generator;
 use TypeError;
 use Zend\Db\Adapter\Adapter;
+use Zend\Db\Adapter\Exception\InvalidQueryException;
 
 class Votes
 {
@@ -18,6 +19,10 @@ class Votes
         $this->adapter = $adapter;
     }
 
+    /**
+     * @throws InvalidQueryException `up_votes` column is unsigned int and
+     *                               cannot be decremented below 0
+     */
     public function decrementUpVotes(
         int $entityTypeId,
         int $typeId
@@ -99,9 +104,9 @@ class Votes
             $entityTypeId,
             $typeId,
         ];
-        return (int) $this->adapter
-                          ->query($sql)
-                          ->execute($parameters)
-                          ->current();
+        return $this->adapter
+                    ->query($sql)
+                    ->execute($parameters)
+                    ->current();
     }
 }
