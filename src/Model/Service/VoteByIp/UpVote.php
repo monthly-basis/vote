@@ -21,19 +21,19 @@ class UpVote
         int $entityTypeId,
         int $typeId,
         int $currentValue
-    ) {
+    ): bool {
         $this->connection->beginTransaction();
 
-        $rowsAffected = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+        $affectedRows = $this->voteByIpTable->insertOnDuplicateKeyUpdate(
             $ip,
             $entityTypeId,
             $typeId,
             1
         );
 
-        if (empty($rowsAffected)) {
-            $this->connection->commit();
-            return;
+        if ($affectedRows == 0) {
+            $this->connection->rollback();
+            return false;
         }
 
         $this->votesTable->insertIgnore(
@@ -54,5 +54,7 @@ class UpVote
         }
 
         $this->connection->commit();
+
+        return true;
     }
 }
