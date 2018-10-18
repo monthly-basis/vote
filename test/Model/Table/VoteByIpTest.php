@@ -116,4 +116,46 @@ class VoteByIpTest extends TableTestCase
             $array['value']
         );
     }
+
+    public function testUpdate()
+    {
+        $affectedRows = $this->voteByIpTable->update(
+            1,
+            '1.2.3.4',
+            1,
+            12345
+        );
+        $this->assertSame(
+            0,
+            $affectedRows
+        );
+
+        $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            1,
+            12345,
+            -1
+        );
+        $affectedRows = $this->voteByIpTable->update(
+            1,
+            '1.2.3.4',
+            1,
+            12345
+        );
+        $this->assertSame(
+            1,
+            $affectedRows
+        );
+
+        $affectedRows = $this->voteByIpTable->update(
+            1,
+            '1.2.3.4',
+            1,
+            12345
+        );
+        $this->assertSame(
+            0,
+            $affectedRows
+        );
+    }
 }
