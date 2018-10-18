@@ -1,6 +1,8 @@
 <?php
 namespace LeoGalleguillos\Vote\Model\Entity;
 
+use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
+
 class Votes
 {
     protected $downVotes;
