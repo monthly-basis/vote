@@ -32,6 +32,12 @@ class Multiple
             $votesEntities[$array['type_id']] = $votesEntity;
         }
 
+        foreach ($typeIds as $typeId) {
+            if (empty($votesEntities[$typeId])) {
+                $votesEntities[$typeId] = $this->votesFactory->buildDefault();
+            }
+        }
+
         return $votesEntities;
     }
 }
