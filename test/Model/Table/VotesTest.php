@@ -184,4 +184,36 @@ class VotesTest extends TableTestCase
             $array['down_votes']
         );
     }
+
+    public function testSelectWhereEntityTypeIdAndTypeIdIn()
+    {
+        $generator = $this->votesTable->selectWhereEntityTypeIdAndTypeIdIn(
+            11111,
+            [1, 2, 3, 4, 5]
+        );
+        $array = iterator_to_array($generator);
+        $this->assertEmpty($array);
+
+        $this->votesTable->insertIgnore(
+            11111,
+            2
+        );
+        $this->votesTable->insertIgnore(
+            11111,
+            5
+        );
+        $generator = $this->votesTable->selectWhereEntityTypeIdAndTypeIdIn(
+            11111,
+            [1, 2, 3, 4, 5]
+        );
+        $array = iterator_to_array($generator);
+        $this->assertSame(
+            '2',
+            $array[0]['type_id']
+        );
+        $this->assertSame(
+            '5',
+            $array[1]['type_id']
+        );
+    }
 }

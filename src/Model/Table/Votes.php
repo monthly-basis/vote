@@ -109,4 +109,33 @@ class Votes
                     ->execute($parameters)
                     ->current();
     }
+
+    public function selectWhereEntityTypeIdAndTypeIdIn(
+        int $entityTypeId,
+        array $typeIds
+    ): Generator {
+        $typeIds = array_map('intval', $typeIds);
+        $typeIds = implode(', ', $typeIds);
+
+        $sql = "
+            SELECT `entity_type_id`
+                 , `type_id`
+                 , `up_votes`
+                 , `down_votes`
+              FROM `votes`
+             WHERE `votes`.`entity_type_id` = ?
+               AND `votes`.`type_id` IN ($typeIds)
+             ORDER
+                BY FIELD(`votes`.`type_id`, $typeIds)
+                 ;
+        ";
+
+        $parameters = [
+            $entityTypeId,
+        ];
+
+        foreach ($this->adapter->query($sql)->execute($parameters) as $array) {
+            yield $array;
+        }
+    }
 }

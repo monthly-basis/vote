@@ -56,6 +56,12 @@ class Module
                         $serviceManager->get(VoteTable\Votes::class)
                     );
                 },
+                VoteService\Votes\Multiple::class => function ($serviceManager) {
+                    return new VoteService\Votes\Multiple(
+                        $serviceManager->get(VoteFactory\Votes::class),
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
                 VoteTable\Vote::class => function ($serviceManager) {
                     return new VoteTable\Vote(
                         $serviceManager->get('vote')
