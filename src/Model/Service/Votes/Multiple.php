@@ -21,6 +21,10 @@ class Multiple
         int $entityTypeId,
         array $typeIds
     ): array {
+        if (empty($typeIds)) {
+            return [];
+        }
+
         $votesEntities = [];
 
         $generator = $this->votesTable->selectWhereEntityTypeIdAndTypeIdIn(
