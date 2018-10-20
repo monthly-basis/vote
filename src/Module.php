@@ -43,6 +43,12 @@ class Module
                         $serviceManager->get(VoteTable\Vote::class)
                     );
                 },
+                VoteService\VoteByIp\Multiple::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp\Multiple(
+                        $serviceManager->get(VoteFactory\VoteByIp::class),
+                        $serviceManager->get(VoteTable\VoteByIp::class)
+                    );
+                },
                 VoteService\VoteByIp\UpVote::class => function ($serviceManager) {
                     return new VoteService\VoteByIp\UpVote(
                         $serviceManager->get('vote')->getDriver()->getConnection(),
