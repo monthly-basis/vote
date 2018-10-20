@@ -117,6 +117,50 @@ class VoteByIpTest extends TableTestCase
         );
     }
 
+    public function testSelectWhereIpAndEntityTypeIdAndTypeIdIn()
+    {
+        $generator = $this->voteByIpTable->selectWhereIpAndEntityTypeIdAndTypeIdIn(
+            '1.2.3.4',
+            11111,
+            [1, 2, 3, 4, 5]
+        );
+        $array = iterator_to_array($generator);
+        $this->assertEmpty($array);
+
+        $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            11111,
+            2,
+            1
+        );
+        $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '5.6.7.8',
+            11111,
+            3,
+            1
+        );
+        $this->voteByIpTable->insertOnDuplicateKeyUpdate(
+            '1.2.3.4',
+            11111,
+            5,
+            -1
+        );
+        $generator = $this->voteByIpTable->selectWhereIpAndEntityTypeIdAndTypeIdIn(
+            '1.2.3.4',
+            11111,
+            [1, 2, 3, 4, 5]
+        );
+        $array = iterator_to_array($generator);
+        $this->assertSame(
+            '1',
+            $array[0]['value']
+        );
+        $this->assertSame(
+            '-1',
+            $array[1]['value']
+        );
+    }
+
     public function testUpdate()
     {
         $affectedRows = $this->voteByIpTable->update(
