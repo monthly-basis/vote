@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\UpVote;
+namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\DownVote;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 
@@ -30,7 +30,7 @@ class Remove
         }
 
         if ($rowsAffected == 1) {
-            $this->votesTable->decrementUpVotes(
+            $this->votesTable->decrementDownVotes(
                 $entityTypeId,
                 $typeId
             );

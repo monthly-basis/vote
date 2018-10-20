@@ -4,7 +4,7 @@ namespace LeoGalleguillos\Vote\Model\Service\VoteByIp;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use Zend\Db\Adapter\Driver\Pdo\Connection;
 
-class UpVote
+class DownVote
 {
     public function __construct(
         Connection $connection,
@@ -16,7 +16,7 @@ class UpVote
         $this->votesTable    = $votesTable;
     }
 
-    public function upVote(
+    public function downVote(
         string $ip,
         int $entityTypeId,
         int $typeId,
@@ -28,7 +28,7 @@ class UpVote
             $ip,
             $entityTypeId,
             $typeId,
-            1
+            -1
         );
 
         if ($affectedRows == 0) {
@@ -40,13 +40,13 @@ class UpVote
             $entityTypeId,
             $typeId
         );
-        $this->votesTable->incrementUpVotes(
+        $this->votesTable->incrementDownVotes(
             $entityTypeId,
             $typeId
         );
 
-        if ($currentValue == -1) {
-            $this->votesTable->decrementDownVotes(
+        if ($currentValue == 1) {
+            $this->votesTable->decrementUpVotes(
                 $entityTypeId,
                 $typeId
             );

@@ -49,6 +49,19 @@ class Module
                         $serviceManager->get(VoteTable\VoteByIp::class)
                     );
                 },
+                VoteService\VoteByIp\DownVote::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp\DownVote(
+                        $serviceManager->get('vote')->getDriver()->getConnection(),
+                        $serviceManager->get(VoteTable\VoteByIp::class),
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
+                VoteService\VoteByIp\DownVote\Remove::class => function ($serviceManager) {
+                    return new VoteService\VoteByIp\DownVote\Remove(
+                        $serviceManager->get(VoteTable\VoteByIp::class),
+                        $serviceManager->get(VoteTable\Votes::class)
+                    );
+                },
                 VoteService\VoteByIp\UpVote::class => function ($serviceManager) {
                     return new VoteService\VoteByIp\UpVote(
                         $serviceManager->get('vote')->getDriver()->getConnection(),
