@@ -2,10 +2,12 @@
 namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\DownVote;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use Zend\Db\Adapter\Driver\Pdo\Connection;
 
 class Remove
 {
     public function __construct(
+        Connection $connection,
         VoteTable\VoteByIp $voteByIpTable,
         VoteTable\Votes $votesTable
     ) {
@@ -17,7 +19,9 @@ class Remove
         string $ip,
         int $entityTypeId,
         int $typeId
-    ) {
+    ): bool {
+        $this->connection->beginTransaction();
+
         $rowsAffected = $this->voteByIpTable->update(
             0,
             $ip,
@@ -26,7 +30,8 @@ class Remove
         );
 
         if (empty($rowsAffected)) {
-            return;
+            $this->connection->rollback();
+            return false;
         }
 
         if ($rowsAffected == 1) {
@@ -35,5 +40,9 @@ class Remove
                 $typeId
             );
         }
+
+        $this->connection->commit();
+
+        return true;
     }
 }

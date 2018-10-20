@@ -58,6 +58,7 @@ class Module
                 },
                 VoteService\VoteByIp\DownVote\Remove::class => function ($serviceManager) {
                     return new VoteService\VoteByIp\DownVote\Remove(
+                        $serviceManager->get('vote')->getDriver()->getConnection(),
                         $serviceManager->get(VoteTable\VoteByIp::class),
                         $serviceManager->get(VoteTable\Votes::class)
                     );
@@ -71,6 +72,7 @@ class Module
                 },
                 VoteService\VoteByIp\UpVote\Remove::class => function ($serviceManager) {
                     return new VoteService\VoteByIp\UpVote\Remove(
+                        $serviceManager->get('vote')->getDriver()->getConnection(),
                         $serviceManager->get(VoteTable\VoteByIp::class),
                         $serviceManager->get(VoteTable\Votes::class)
                     );
