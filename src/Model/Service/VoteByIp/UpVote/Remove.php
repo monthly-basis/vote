@@ -11,6 +11,7 @@ class Remove
         VoteTable\VoteByIp $voteByIpTable,
         VoteTable\Votes $votesTable
     ) {
+        $this->connection    = $connection;
         $this->voteByIpTable = $voteByIpTable;
         $this->votesTable    = $votesTable;
     }
