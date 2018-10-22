@@ -46,6 +46,57 @@ class VotesTest extends TableTestCase
         );
     }
 
+    public function testDecrementDownVotes()
+    {
+        $affectedRows = $this->votesTable->decrementDownVotes(
+            1,
+            12345
+        );
+        $this->assertSame(
+            0,
+            $affectedRows
+        );
+
+        $this->votesTable->insertIgnore(
+            1,
+            12345
+        );
+        try {
+            $affectedRows = $this->votesTable->decrementDownVotes(
+                1,
+                12345
+            );
+            $this->fail();
+        } catch (InvalidQueryException $invalidQueryException) {
+            $this->assertSame(
+                'Statement could not be executed',
+                substr($invalidQueryException->getMessage(), 0, 31)
+            );
+        }
+
+        $this->votesTable->incrementDownVotes(
+            1,
+            12345
+        );
+        $this->assertSame(
+            '1',
+            $this->votesTable->select(1, 12345)['down_votes']
+        );
+
+        $affectedRows = $this->votesTable->decrementDownVotes(
+            1,
+            12345
+        );
+        $this->assertSame(
+            1,
+            $affectedRows
+        );
+        $this->assertSame(
+            '0',
+            $this->votesTable->select(1, 12345)['down_votes']
+        );
+    }
+
     public function testDecrementUpVotes()
     {
         $affectedRows = $this->votesTable->decrementUpVotes(
@@ -90,6 +141,44 @@ class VotesTest extends TableTestCase
         $this->assertSame(
             1,
             $affectedRows
+        );
+        $this->assertSame(
+            '0',
+            $this->votesTable->select(1, 12345)['up_votes']
+        );
+    }
+
+    public function testIncrementDownVotes()
+    {
+        $affectedRows = $this->votesTable->incrementDownVotes(
+            1,
+            12345
+        );
+        $this->assertSame(
+            0,
+            $affectedRows
+        );
+
+        $this->votesTable->insertIgnore(
+            1,
+            12345
+        );
+        $this->assertSame(
+            '0',
+            $this->votesTable->select(1, 12345)['down_votes']
+        );
+
+        $affectedRows = $this->votesTable->incrementDownVotes(
+            1,
+            12345
+        );
+        $this->assertSame(
+            1,
+            $affectedRows
+        );
+        $this->assertSame(
+            '1',
+            $this->votesTable->select(1, 12345)['down_votes']
         );
         $this->assertSame(
             '0',

@@ -20,6 +20,30 @@ class Votes
     }
 
     /**
+     * @throws InvalidQueryException `down_votes` column is unsigned int and
+     *                               cannot be decremented below 0
+     */
+    public function decrementDownVotes(
+        int $entityTypeId,
+        int $typeId
+    ):int {
+        $sql = '
+            UPDATE `votes`
+               SET `down_votes` = `down_votes` - 1
+             WHERE `entity_type_id` = ?
+               AND `type_id` = ?
+        ';
+        $parameters = [
+            $entityTypeId,
+            $typeId,
+        ];
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getAffectedRows();
+    }
+
+    /**
      * @throws InvalidQueryException `up_votes` column is unsigned int and
      *                               cannot be decremented below 0
      */
@@ -30,6 +54,26 @@ class Votes
         $sql = '
             UPDATE `votes`
                SET `up_votes` = `up_votes` - 1
+             WHERE `entity_type_id` = ?
+               AND `type_id` = ?
+        ';
+        $parameters = [
+            $entityTypeId,
+            $typeId,
+        ];
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getAffectedRows();
+    }
+
+    public function incrementDownVotes(
+        int $entityTypeId,
+        int $typeId
+    ):int {
+        $sql = '
+            UPDATE `votes`
+               SET `down_votes` = `down_votes` + 1
              WHERE `entity_type_id` = ?
                AND `type_id` = ?
         ';
