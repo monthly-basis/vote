@@ -6,6 +6,7 @@
         "leo-galleguillos/flash": "dev-master",
         "leo-galleguillos/re-captcha": "dev-master",
         "leo-galleguillos/string": "dev-master",
+        "leo-galleguillos/test": "dev-master",
         "leo-galleguillos/user": "dev-master",
         "zendframework/zend-test": "^3.1"
     },
