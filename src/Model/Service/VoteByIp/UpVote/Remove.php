@@ -42,11 +42,11 @@ class Remove
                 $typeId
             );
         } catch (InvalidQueryException $invalidQueryException) {
+            $this->connection->commit();
             return false;
         }
 
         $this->connection->commit();
-
         return true;
     }
 }
