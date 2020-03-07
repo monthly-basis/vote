@@ -3,6 +3,7 @@ namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\DownVote;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use Zend\Db\Adapter\Driver\Pdo\Connection;
+use Zend\Db\Adapter\Exception\InvalidQueryException;
 
 class Remove
 {
@@ -35,15 +36,17 @@ class Remove
             return false;
         }
 
-        if ($rowsAffected == 1) {
+        try {
             $this->votesTable->decrementDownVotes(
                 $entityTypeId,
                 $typeId
             );
+        } catch (InvalidQueryException $invalidQueryException) {
+            $this->connection->commit();
+            return false;
         }
 
         $this->connection->commit();
-
         return true;
     }
 }
