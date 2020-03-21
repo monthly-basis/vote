@@ -38,14 +38,6 @@ class VotesTest extends TableTestCase
         $result = $this->adapter->query($sql)->execute();
     }
 
-    public function testInitialize()
-    {
-        $this->assertInstanceOf(
-            VoteTable\Votes::class,
-            $this->votesTable
-        );
-    }
-
     public function testDecrementDownVotes()
     {
         $affectedRows = $this->votesTable->decrementDownVotes(
