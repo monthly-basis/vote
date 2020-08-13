@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class VoteTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->voteTableMock = $this->createMock(
             VoteTable\Vote::class

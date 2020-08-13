@@ -13,7 +13,7 @@ use Zend\Db\Adapter\Driver\Pdo\Connection;
 
 class UpVoteTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->connectionMock = $this->createMock(
             Connection::class
