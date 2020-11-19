@@ -1,8 +1,6 @@
 <?php
 namespace LeoGalleguillos\Vote\Model\Factory;
 
-use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
-use LeoGalleguillos\User\Model\Entity as UserEntity;
 use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use TypeError;
