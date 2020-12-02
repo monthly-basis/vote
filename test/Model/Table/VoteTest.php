@@ -6,7 +6,7 @@ use Exception;
 use Generator;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use LeoGalleguillos\VoteTest\TableTestCase;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
 class VoteTest extends TableTestCase

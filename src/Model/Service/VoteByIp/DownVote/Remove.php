@@ -2,8 +2,8 @@
 namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\DownVote;
 
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
-use Zend\Db\Adapter\Driver\Pdo\Connection;
-use Zend\Db\Adapter\Exception\InvalidQueryException;
+use Laminas\Db\Adapter\Driver\Pdo\Connection;
+use Laminas\Db\Adapter\Exception\InvalidQueryException;
 
 class Remove
 {

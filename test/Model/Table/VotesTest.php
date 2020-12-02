@@ -4,8 +4,8 @@ namespace LeoGalleguillos\VoteTest\Model\Table;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use LeoGalleguillos\VoteTest\TableTestCase;
 use TypeError;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\Adapter\Exception\InvalidQueryException;
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Exception\InvalidQueryException;
 
 class VotesTest extends TableTestCase
 {

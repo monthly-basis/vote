@@ -4,7 +4,7 @@ namespace LeoGalleguillos\VoteTest\Model\Table;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use LeoGalleguillos\VoteTest\TableTestCase;
 use TypeError;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 
 class VoteByIpTest extends TableTestCase
 {

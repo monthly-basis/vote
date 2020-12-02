@@ -4,8 +4,8 @@ namespace LeoGalleguillos\Vote\Model\Table;
 use Exception;
 use Generator;
 use TypeError;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\Adapter\Exception\InvalidQueryException;
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Exception\InvalidQueryException;
 
 class Votes
 {

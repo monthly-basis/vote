@@ -9,7 +9,7 @@ use LeoGalleguillos\Vote\Model\Factory as VoteFactory;
 use LeoGalleguillos\Vote\Model\Service as VoteService;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 use PHPUnit\Framework\TestCase;
-use Zend\Db\Adapter\Driver\Pdo\Connection;
+use Laminas\Db\Adapter\Driver\Pdo\Connection;
 
 class UpVoteTest extends TestCase
 {
