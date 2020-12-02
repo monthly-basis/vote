@@ -1,7 +1,7 @@
 <?php
 namespace LeoGalleguillos\Vote\Model\Service;
 
-use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
+use MonthlyBasis\Entity\Model\Entity as EntityEntity;
 use MonthlyBasis\User\Model\Entity as UserEntity;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 

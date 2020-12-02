@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab0ffe664e9e3d1ecfeb485727bdfe5",
+    "content-hash": "07070cfa15770a7579d2387735f93b81",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1253,69 +1253,36 @@
             "time": "2020-09-14T14:23:00+00:00"
         },
         {
-            "name": "leo-galleguillos/entity",
-            "version": "v1.0.1",
+            "name": "monthly-basis/entity",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/LeoGalleguillos/Entity.git",
-                "reference": "59d0ecbcc8e22d9478050cb40f38f815dd87bc02"
+                "url": "https://github.com/monthly-basis/entity.git",
+                "reference": "d5f0491e1ed24579c3283a2514120083d86162cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LeoGalleguillos/Entity/zipball/59d0ecbcc8e22d9478050cb40f38f815dd87bc02",
-                "reference": "59d0ecbcc8e22d9478050cb40f38f815dd87bc02",
+                "url": "https://api.github.com/repos/monthly-basis/entity/zipball/d5f0491e1ed24579c3283a2514120083d86162cf",
+                "reference": "d5f0491e1ed24579c3283a2514120083d86162cf",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-db": "^2.9",
                 "laminas/laminas-test": "^3.1",
-                "leo-galleguillos/test": "^1.0"
+                "monthly-basis/laminas-test": "^2.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "LeoGalleguillos\\Entity\\": "src/",
-                    "LeoGalleguillos\\EntityTest\\": "test/"
+                    "MonthlyBasis\\Entity\\": "src/",
+                    "MonthlyBasis\\EntityTest\\": "test/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "abandoned": "monthly-basis/entity",
-            "time": "2020-01-26T08:08:07+00:00"
-        },
-        {
-            "name": "leo-galleguillos/test",
-            "version": "v1.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LeoGalleguillos/Test.git",
-                "reference": "313e9bc536f6ce1e28eeecab25ea4aa11e203755"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LeoGalleguillos/Test/zipball/313e9bc536f6ce1e28eeecab25ea4aa11e203755",
-                "reference": "313e9bc536f6ce1e28eeecab25ea4aa11e203755",
-                "shasum": ""
-            },
-            "require": {
-                "laminas/laminas-db": "^2.9",
-                "laminas/laminas-test": "^3.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LeoGalleguillos\\Test\\": "src/",
-                    "LeoGalleguillos\\TestTest\\": "test/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "abandoned": "monthly-basis/laminas-test",
-            "time": "2020-06-06T16:07:22+00:00"
+            "time": "2020-11-08T19:58:15+00:00"
         },
         {
             "name": "monthly-basis/flash",
