@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\VoteTest;
+namespace MonthlyBasis\VoteTest;
 
-use LeoGalleguillos\Vote\Module;
+use MonthlyBasis\Vote\Module;
 use PHPUnit\Framework\TestCase;
 use Laminas\Mvc\Application;
 

@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\VoteByIp;
+namespace MonthlyBasis\Vote\Model\Service\VoteByIp;
 
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 use Laminas\Db\Adapter\Driver\Pdo\Connection;
 
 class UpVote

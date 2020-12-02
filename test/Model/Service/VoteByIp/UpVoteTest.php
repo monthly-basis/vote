@@ -1,13 +1,13 @@
 <?php
-namespace LeoGalleguillos\VoteTest\Model\Service\VoteByIp;
+namespace MonthlyBasis\VoteTest\Model\Service\VoteByIp;
 
 use Exception;
 use MonthlyBasis\Entity\Model\Entity as EntityEntity;
 use MonthlyBasis\User\Model\Entity as UserEntity;
-use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
-use LeoGalleguillos\Vote\Model\Factory as VoteFactory;
-use LeoGalleguillos\Vote\Model\Service as VoteService;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Entity as VoteEntity;
+use MonthlyBasis\Vote\Model\Factory as VoteFactory;
+use MonthlyBasis\Vote\Model\Service as VoteService;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 use PHPUnit\Framework\TestCase;
 use Laminas\Db\Adapter\Driver\Pdo\Connection;
 

@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\Vote;
+namespace MonthlyBasis\Vote;
 
-use LeoGalleguillos\Vote\Model\Factory as VoteFactory;
-use LeoGalleguillos\Vote\Model\Service as VoteService;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Factory as VoteFactory;
+use MonthlyBasis\Vote\Model\Service as VoteService;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 
 class Module
 {

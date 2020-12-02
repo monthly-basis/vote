@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service;
+namespace MonthlyBasis\Vote\Model\Service;
 
 use MonthlyBasis\Entity\Model\Entity as EntityEntity;
 use MonthlyBasis\User\Model\Entity as UserEntity;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 
 class Count
 {

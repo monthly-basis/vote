@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Table;
+namespace MonthlyBasis\Vote\Model\Table;
 
 use Exception;
 use Generator;

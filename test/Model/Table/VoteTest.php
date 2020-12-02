@@ -1,11 +1,11 @@
 <?php
-namespace LeoGalleguillos\VoteTest\Model\Table;
+namespace MonthlyBasis\VoteTest\Model\Table;
 
 use ArrayObject;
 use Exception;
 use Generator;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
-use LeoGalleguillos\VoteTest\TableTestCase;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
+use MonthlyBasis\VoteTest\TableTestCase;
 use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 

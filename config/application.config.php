@@ -4,7 +4,7 @@ return [
     'modules' => [
         'MonthlyBasis\Entity',
         'MonthlyBasis\User',
-        'LeoGalleguillos\Vote',
+        'MonthlyBasis\Vote',
         'Zend\Db',
         'Zend\Router',
     ],

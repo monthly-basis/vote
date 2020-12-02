@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\VoteTest\Model\Table;
+namespace MonthlyBasis\VoteTest\Model\Table;
 
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
-use LeoGalleguillos\VoteTest\TableTestCase;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
+use MonthlyBasis\VoteTest\TableTestCase;
 use TypeError;
 use Laminas\Db\Adapter\Adapter;
 

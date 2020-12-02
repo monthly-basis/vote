@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Factory;
+namespace MonthlyBasis\Vote\Model\Factory;
 
-use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Entity as VoteEntity;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 use TypeError;
 
 class VoteByIp

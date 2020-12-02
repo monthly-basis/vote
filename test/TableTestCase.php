@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\VoteTest;
+namespace MonthlyBasis\VoteTest;
 
 use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;

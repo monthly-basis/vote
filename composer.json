@@ -1,5 +1,5 @@
 {
-    "name": "leo-galleguillos/vote",
+    "name": "monthly-basis/vote",
     "license": "MIT",
     "require": {
         "laminas/laminas-test": "^3.1",
@@ -9,8 +9,8 @@
     },
     "autoload": {
         "psr-4": {
-            "LeoGalleguillos\\Vote\\": "src/",
-            "LeoGalleguillos\\VoteTest\\": "test/"
+            "MonthlyBasis\\Vote\\": "src/",
+            "MonthlyBasis\\VoteTest\\": "test/"
         }
     }
 }

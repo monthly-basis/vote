@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\VoteByIp;
+namespace MonthlyBasis\Vote\Model\Service\VoteByIp;
 
-use LeoGalleguillos\Vote\Model\Factory as VoteFactory;
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Factory as VoteFactory;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 
 class Multiple
 {

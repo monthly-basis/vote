@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\Vote\Model\Service\VoteByIp\DownVote;
+namespace MonthlyBasis\Vote\Model\Service\VoteByIp\DownVote;
 
-use LeoGalleguillos\Vote\Model\Table as VoteTable;
+use MonthlyBasis\Vote\Model\Table as VoteTable;
 use Laminas\Db\Adapter\Driver\Pdo\Connection;
 use Laminas\Db\Adapter\Exception\InvalidQueryException;
 
