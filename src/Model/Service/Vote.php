@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\Vote\Model\Service;
 
 use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
-use LeoGalleguillos\User\Model\Entity as UserEntity;
+use MonthlyBasis\User\Model\Entity as UserEntity;
 use LeoGalleguillos\Vote\Model\Table as VoteTable;
 
 class Vote

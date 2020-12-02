@@ -3,7 +3,7 @@
 return [
     'modules' => [
         'LeoGalleguillos\Entity',
-        'LeoGalleguillos\User',
+        'MonthlyBasis\User',
         'LeoGalleguillos\Vote',
         'Zend\Db',
         'Zend\Router',

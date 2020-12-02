@@ -3,7 +3,7 @@ namespace LeoGalleguillos\VoteTest\Model\Service\VoteByIp;
 
 use Exception;
 use LeoGalleguillos\Entity\Model\Entity as EntityEntity;
-use LeoGalleguillos\User\Model\Entity as UserEntity;
+use MonthlyBasis\User\Model\Entity as UserEntity;
 use LeoGalleguillos\Vote\Model\Entity as VoteEntity;
 use LeoGalleguillos\Vote\Model\Factory as VoteFactory;
 use LeoGalleguillos\Vote\Model\Service as VoteService;
