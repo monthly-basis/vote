@@ -101,8 +101,8 @@ class VoteByIpTest extends TableTestCase
             $this->fail();
         } catch (TypeError $typeError) {
             $this->assertSame(
-                'Return value',
-                substr($typeError->getMessage(), 0, 12)
+                'MonthlyBasis\Vote\Model\Table\VoteByIp::selectWhereIpEntityTypeIdTypeId(): Return value must be of type array, bool returned',
+                $typeError->getMessage()
             );
         }
 
@@ -112,7 +112,7 @@ class VoteByIpTest extends TableTestCase
             456
         );
         $this->assertSame(
-            '-1',
+            -1,
             $array['value']
         );
     }
@@ -152,11 +152,11 @@ class VoteByIpTest extends TableTestCase
         );
         $array = iterator_to_array($generator);
         $this->assertSame(
-            '1',
+            1,
             $array[0]['value']
         );
         $this->assertSame(
-            '-1',
+            -1,
             $array[1]['value']
         );
     }

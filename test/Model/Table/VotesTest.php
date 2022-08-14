@@ -71,7 +71,7 @@ class VotesTest extends TableTestCase
             12345
         );
         $this->assertSame(
-            '1',
+            1,
             $this->votesTable->select(1, 12345)['down_votes']
         );
 
@@ -84,7 +84,7 @@ class VotesTest extends TableTestCase
             $affectedRows
         );
         $this->assertSame(
-            '0',
+            0,
             $this->votesTable->select(1, 12345)['down_votes']
         );
     }
@@ -122,7 +122,7 @@ class VotesTest extends TableTestCase
             12345
         );
         $this->assertSame(
-            '1',
+            1,
             $this->votesTable->select(1, 12345)['up_votes']
         );
 
@@ -135,7 +135,7 @@ class VotesTest extends TableTestCase
             $affectedRows
         );
         $this->assertSame(
-            '0',
+            0,
             $this->votesTable->select(1, 12345)['up_votes']
         );
     }
@@ -156,7 +156,7 @@ class VotesTest extends TableTestCase
             12345
         );
         $this->assertSame(
-            '0',
+            0,
             $this->votesTable->select(1, 12345)['down_votes']
         );
 
@@ -169,11 +169,11 @@ class VotesTest extends TableTestCase
             $affectedRows
         );
         $this->assertSame(
-            '1',
+            1,
             $this->votesTable->select(1, 12345)['down_votes']
         );
         $this->assertSame(
-            '0',
+            0,
             $this->votesTable->select(1, 12345)['up_votes']
         );
     }
@@ -194,7 +194,7 @@ class VotesTest extends TableTestCase
             12345
         );
         $this->assertSame(
-            '0',
+            0,
             $this->votesTable->select(1, 12345)['up_votes']
         );
 
@@ -207,7 +207,7 @@ class VotesTest extends TableTestCase
             $affectedRows
         );
         $this->assertSame(
-            '1',
+            1,
             $this->votesTable->select(1, 12345)['up_votes']
         );
     }
@@ -243,8 +243,8 @@ class VotesTest extends TableTestCase
             $this->fail();
         } catch (TypeError $typeError) {
             $this->assertSame(
-                'Return value',
-                substr($typeError->getMessage(), 0, 12)
+                'MonthlyBasis\Vote\Model\Table\Votes::select(): Return value must be of type array, bool returned',
+                $typeError->getMessage()
             );
         }
 
@@ -257,11 +257,11 @@ class VotesTest extends TableTestCase
             22222
         );
         $this->assertSame(
-            '0',
+            0,
             $array['up_votes']
         );
         $this->assertSame(
-            '0',
+            0,
             $array['down_votes']
         );
     }
@@ -289,11 +289,11 @@ class VotesTest extends TableTestCase
         );
         $array = iterator_to_array($generator);
         $this->assertSame(
-            '2',
+            2,
             $array[0]['type_id']
         );
         $this->assertSame(
-            '5',
+            5,
             $array[1]['type_id']
         );
     }
