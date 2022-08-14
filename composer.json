@@ -8,7 +8,7 @@
     "license": "MIT",
     "name": "monthly-basis/vote",
     "require": {
-        "laminas/laminas-test": "^3.1",
+        "laminas/laminas-test": "^4.0",
         "monthly-basis/entity": "^2.0",
         "monthly-basis/user": "^3.0",
         "monthly-basis/laminas-test": "^2.0"
